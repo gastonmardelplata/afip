@@ -41,17 +41,26 @@ No son catálogos de valores (cada causa tiene sus propias personas); lo catalog
 | `banderas.json` | Urgente / En revisión / Listo — confirmado por el usuario como el significado de las etiquetas de color rojo/amarillo/verde. Es un atributo independiente del Estado y de la Prioridad. |
 | `campos_nativos_trello_hallazgos.json` | Campos nativos de Trello (etiquetas, fecha due, miembros) que la primera pasada no había mirado por revisar solo el texto de las descripciones. |
 
+## Revisión en profundidad (tarjetas archivadas y adjuntos)
+
+| Archivo | Contenido |
+|---|---|
+| `tipos_documento.json` | Catálogo de tipos de documento/evidencia sacado de los **adjuntos reales** de al menos 17 tarjetas (informe pericial, anexos, puntos de pericia por parte, capturas de WhatsApp crudas y compiladas, fotos, audios, evidencia de geolocalización, contestación de impugnación). Nunca se había revisado esto antes; conecta directo con el módulo "Evidencias" del portal real. |
+| `segunda_revision_profunda_hallazgos.json` | 3 tarjetas duplicadas encontradas al revisar archivadas (044, 045, 046: la archivada vacía, la abierta con los datos); confirmación de que la "bandeja de designaciones" ya existe hoy de forma **informal** (una tarjeta-lista manual que se archiva al procesarla), matizando el hallazgo anterior de que "no existe ningún paso de bandeja". |
+
 ## Los 5 hallazgos más importantes para el diseño
 
 1. **Hay tres números distintos, no uno mal cargado**: `numero_mev` (ID interno del sistema SCBA/MEV, pelado, sin formato), `numero_causa` (`SIGLA-correlativo-año`, ej. MP-12931-2019) y `numero_interno` (el propio del estudio, ej. 061-2026). Una tarjeta real tiene los dos primeros juntos (`Expdte. 128703. MP-12931-2019`).
 2. **Fuero debe derivarse del organismo, no tipearse**: cruzando cada tarjeta contra su propio juzgado encontramos que "Fuero: Daños y Perjuicios" y "Fuero: Bancaria" son materias mal cargadas, y la tarjeta 012 (FINAMOR) está cargada como Familia cuando el juzgado real es un Tribunal de Trabajo (Laboral) — un error real, no cosmético.
 3. **El retroceso de estado ya funciona hoy**, técnicamente; lo que falta es el motivo y que el historial sea visible sin bucear en el log de actividad de Trello.
-4. **La "bandeja de designaciones" no reemplaza nada existente**: las 21 tarjetas automáticas de la SCBA no caen en ningún estado de "pendiente" — quedan repartidas en 3 listas distintas según lo que el texto del último evento sugiere.
+4. **La "bandeja de designaciones" no reemplaza nada existente en un estado del flujo**, pero sí existe hoy de forma informal: una tarjeta-lista manual acumula las notificaciones nuevas y se archiva cuando se procesan (convertidas en tarjetas 🆕 individuales). El diseño nuevo formaliza ese paso, no inventa uno.
 5. **Ningún dato de representantes está completo**: en 76 tarjetas, cero traen CUIT, tipo de persona, tomo/folio completo o domicilio electrónico; solo 1 de 4 abogados mencionados dice a qué parte representa.
+6. **Hay documentación sustancial que vive solo como adjunto de archivo**, nunca relevada hasta la revisión en profundidad: el informe pericial final, sus anexos, los puntos de pericia por parte (como PDF, no texto), y toda la evidencia (WhatsApp, fotos, audios, geolocalización). Cualquier migración tiene que llevarse también estos archivos, no solo los datos de texto de la ficha.
 
 ## Lo que todavía falta relevar
 
 - El modelo de datos completo de Partes/Representantes como esquema (campos, no solo roles) — quedó extraído la evidencia pero no escrito el schema final.
-- Migración de las 76 tarjetas actuales al modelo nuevo (no está en el alcance de este relevamiento).
+- Migración de las 76 tarjetas actuales al modelo nuevo, incluyendo revisar el resto de las tarjetas archivadas (no está en el alcance de este relevamiento).
 - Confirmar a mano los huecos de numeración interna (9, 48-52) antes de arrancar la numeración nueva.
 - El significado de las 3 etiquetas de color usadas una sola vez cada una (naranja, azul, "Gris") — quedaron sin migrar.
+- Traer el historial completo de adjuntos del tablero (el relevado cubre los últimos ~100 eventos de carga; hay más historial disponible sin traer).

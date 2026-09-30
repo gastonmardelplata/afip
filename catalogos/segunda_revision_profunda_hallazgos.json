@@ -1,0 +1,34 @@
+{
+  "_fuente": "Revisión en profundidad del tablero \"Pericias 2026\" (2026-09-30), pedida explícitamente para ir más allá de lo ya relevado. Esta vez se miraron tarjetas ARCHIVADAS (no solo abiertas) y los adjuntos de archivo (no solo texto y campos nativos), que ninguna pasada anterior había cubierto.",
+  "tarjetas_duplicadas_encontradas": {
+    "hallazgo": "Al traer las tarjetas archivadas del tablero (4 en total) aparecieron 3 duplicados exactos de tarjetas que ya están abiertas con el mismo número:",
+    "casos": [
+      {
+        "numero": "044",
+        "archivada": "044 -- MARTINEZ CAIN C HORTA EMILIO S DESPIDO (doble guion, vacía, lista Comenzada)",
+        "abierta": "044 - MARTINEZ CAIN C HORTA EMILIO S DESPIDO (un guion, también vacía, lista Comenzada)"
+      },
+      {
+        "numero": "045",
+        "archivada": "45 - CORTES MICAELA ANTONELLA C/ CLÍNICA PRIVADA PUEYRREDÓN S.A. Y OTROS S/ DAÑOS Y PERJUICIOS EXTRACONTRACTUAL (carátula completa, vacía, lista Aceptada)",
+        "abierta": "045 - CORTES MICAELA ANTONELLA C/ CLÍNICA PRIVADA PUEYRREDÓN (carátula corta, vacía, lista Comenzada)"
+      },
+      {
+        "numero": "046",
+        "archivada": "046_GARCIA JUAN CARLOS C CAJA DE SEGUROS (guion bajo, vacía, lista Comenzada)",
+        "abierta": "046 - GARCIA JUAN CARLOS C CAJA DE SEGUROS (guion, con Fuero/Materia/Monto cargados y 8 adjuntos, lista En Espera de Respuesta)"
+      }
+    ],
+    "interpretacion": "En los 3 casos la tarjeta archivada está vacía y la abierta tiene los datos (cuando los tiene). Es consistente con 'creé la tarjeta con el número, algo salió mal con el formato del nombre o quedó vacía, la archivé y hice una nueva con el mismo número' — un patrón de corrección manual, no un error del sistema.",
+    "impacto_para_la_migracion": "Migrar solo tarjetas abiertas es correcto para no duplicar causas, pero conviene revisar TODAS las archivadas antes de la migración final (no solo estas 4) por si hay algún dato único que solo esté en una archivada y no se haya replicado a la abierta."
+  },
+  "bandeja_de_designaciones_ya_existe_de_forma_informal": {
+    "correccion": "En hallazgos anteriores dijimos que 'hoy no existe ningún paso de bandeja'. Hay que matizarlo: existe una versión manual e informal. La tarjeta archivada '📬 REVISAR – Notificaciones SCBA sep-2026 de causas sin tarjeta' es una lista de 7 causas notificadas por la SCBA que todavía no tenían tarjeta propia, con instrucción explícita al final: 'Archivar esta tarjeta cuando se hayan revisado'.",
+    "como_funciona_hoy": "Las notificaciones de causas nuevas se acumulan primero en UNA tarjeta-lista (a mano, texto libre), y en algún momento se '(re)convierten' en tarjetas 🆕 individuales; la tarjeta-lista original se archiva una vez procesada. De hecho, las 7 causas de esa tarjeta archivada son las mismas 7 que ya están como tarjetas 🆕 abiertas (FERNANDEZ SAN MIGUEL, MOYANO, NIEVA, VENTURINO, MUTUAL SIND, SANTILLAN, ORDOQUI).",
+    "conclusion": "La 'Bandeja de designaciones' de la propuesta no inventa un paso nuevo de la nada: formaliza y reemplaza esta tarjeta-lista manual por una vista estructurada, evitando el paso manual de copiar cada entrada a una tarjeta nueva y de acordarse de archivar la tarjeta-lista."
+  },
+  "adjuntos_de_archivo_no_relevados_antes": {
+    "hallazgo": "Ninguna pasada anterior había revisado los archivos adjuntos a las tarjetas. Hay al menos 17 tarjetas con adjuntos (100+ eventos de carga de archivo en el historial del tablero, con más historial todavía sin traer). El detalle de categorías de documentos encontradas está en catalogos/tipos_documento.json — incluye el informe pericial final, anexos, puntos de pericia por parte, evidencia de WhatsApp cruda y compilada, fotos, audios, evidencia de geolocalización y contestaciones de impugnación.",
+    "por_que_importa": "Esto es material real y sustancial (el dictamen, los anexos, la evidencia) que vive completamente fuera de lo que se había catalogado hasta ahora (que era todo texto de la descripción y campos nativos). Cualquier migración del Trello al Portal de Pericias tiene que migrar también estos adjuntos, no solo los datos de texto de la ficha."
+  }
+}

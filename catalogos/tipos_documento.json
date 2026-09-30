@@ -1,0 +1,64 @@
+{
+  "_fuente": "Revisión en profundidad (2026-09-30) de los adjuntos reales de las tarjetas del tablero \"Pericias 2026\". No se había mirado esto en las pasadas anteriores. Se revisaron los adjuntos de 9 tarjetas (055-MISINO con 12 adjuntos, 046-GARCIA con 8, 023-SCAIANO con 7, 027-LANDIN con 8, 057-WILKS con 5, 012-FINAMOR con 7, 020-MENACHO con 5, 002-AGUAVOTTA con 3, y una comprobación negativa en 015) sobre un universo de al menos 17 tarjetas con adjuntos (según los últimos 100 eventos 'addAttachmentToCard' del tablero, que además indican que hay más historial sin traer).",
+  "categorias_de_documento_encontradas": [
+    {
+      "id": "antecedentes",
+      "nombre": "Antecedentes",
+      "ejemplos_de_nombre_de_archivo": ["MISINO_ALLER_MERCEDES_Antecedentes.pdf", "GARCIA_JUAN_Antecedentes.pdf", "WILKS_ERNESTO_Antecedentes.pdf"],
+      "nota": "Parece ser demanda + contestación resumidas o compiladas en un solo PDF por causa."
+    },
+    {
+      "id": "puntos-de-pericia-por-parte",
+      "nombre": "Puntos de pericia (por parte)",
+      "ejemplos_de_nombre_de_archivo": ["MISINO_ALLER_MERCEDES_Puntos_Actora_y_link_drive.pdf", "GARCIA_JUAN_Puntos_Actora.pdf", "WILKS_ERNESTO_Puntos_demandada.pdf"],
+      "nota": "Confirma el campo 'puntos de pericia separados según la parte que los propuso' del Paso 3 — pero hoy se resuelve subiendo un PDF por parte (Actora/Demandada), no como texto estructurado. El nombre de archivo ya trae el proponente. Recomendación: mantener la carga como adjunto (no vale la pena transcribir a texto), pero taguear el adjunto con el rol de la parte como metadato explícito en vez de depender del nombre del archivo."
+    },
+    {
+      "id": "capturas-whatsapp",
+      "nombre": "Capturas de WhatsApp (compiladas)",
+      "ejemplos_de_nombre_de_archivo": ["MISINO_ALLER_MERCEDES_Capturas_WhatsApp.pdf"]
+    },
+    {
+      "id": "whatsapp-crudo",
+      "nombre": "Exportación cruda de WhatsApp (sin procesar)",
+      "ejemplos_de_nombre_de_archivo": ["IMG-20251125-WA0013.jpg", "AUDIO 1.ogg ... AUDIO 10.ogg"],
+      "nota": "Fotos y notas de voz de WhatsApp subidas tal cual, numeradas, sin agrupar en un único PDF como las capturas de texto. Son el material fuente antes de la compilación."
+    },
+    {
+      "id": "evidencia-geolocalizacion",
+      "nombre": "Evidencia de geolocalización",
+      "ejemplos_de_nombre_de_archivo": ["WILKS_ERNESTO_Google_Maps.pdf", "WILKS_ERNESTO_Google_Earth.pdf"],
+      "nota": "Específico de la causa de posesión veinteañal (057-WILKS); confirma que el 'Tipo de pericia' debería poder registrar algo como 'geolocalización/imágenes satelitales' además de los 10 tipos ya catalogados en tipos_pericia.json — no apareció como texto en el campo Tipo de esa tarjeta (que no tiene Tipo cargado), solo se ve en los adjuntos."
+    },
+    {
+      "id": "hechos-version-contraparte",
+      "nombre": "Hechos según la contraparte",
+      "ejemplos_de_nombre_de_archivo": ["WILKS_ERNESTO_Hechos_segun_demandada.pdf"]
+    },
+    {
+      "id": "informe-pericial",
+      "nombre": "Informe pericial / dictamen final",
+      "ejemplos_de_nombre_de_archivo": ["Pericia SCAIANO.pdf", "Pericia Landin.pdf", "Pericia Finamor.pdf", "AGUAVOTTA PericiaCompleta.pdf", "Menacho_PericiaCompleta.pdf"],
+      "problema_de_naming": "5 tarjetas, 5 convenciones de nombre distintas para el mismo tipo de documento: 'Pericia <Apellido>.pdf', '<Apellido> PericiaCompleta.pdf', '<Apellido>_PericiaCompleta.pdf'. Ninguna es errónea individualmente, pero no hay un patrón único — confirma que el nombre de archivo no se puede usar para clasificar el tipo de documento, hace falta un campo de tipo explícito al subir."
+    },
+    {
+      "id": "anexo",
+      "nombre": "Anexo del informe pericial",
+      "ejemplos_de_nombre_de_archivo": ["ANEXO I.pdf", "Anexo I.pdf", "AnexoIII.pdf", "Anexo_l.pdf", "Anexo_ll.pdf"],
+      "problema_de_naming": "La causa 020-MENACHO tiene 'Anexo_l.pdf' y 'Anexo_ll.pdf' con la letra minúscula 'l' en vez del número romano 'I' — probablemente un error de tipeo (la l minúscula y la I mayúscula se ven casi iguales en muchas fuentes) que después de subido nadie corrigió. Confirma que numerar anexos a mano en el nombre del archivo es frágil; conviene que el sistema numere los anexos automáticamente al subirlos, no depender de que el nombre de archivo lo diga bien."
+    },
+    {
+      "id": "respuesta-impugnacion",
+      "nombre": "Contestación de impugnación pericial",
+      "ejemplos_de_nombre_de_archivo": ["Contesta_Impugnacion_Pericial_Landin.pdf"],
+      "nota": "Encontrado en la tarjeta 027-LANDIN, que efectivamente pasó por el estado Impugnaciones — es el documento que se produce en ese estado. Vale la pena que el estado 'Impugnada/Aclaraciones' del catálogo de Estados tenga asociado este tipo de documento como entregable esperado."
+    },
+    {
+      "id": "foto",
+      "nombre": "Foto (numerada, individual)",
+      "ejemplos_de_nombre_de_archivo": ["GARCIA_JUAN_Foto_1.pdf ... GARCIA_JUAN_Foto_6.pdf"],
+      "nota": "A diferencia de MISINO (fotos de WhatsApp como .jpg crudo), acá cada foto se subió convertida a PDF individual y numerada — otra variante más del mismo tipo de evidencia."
+    }
+  ],
+  "relacion_con_el_portal_real": "El screenshot de portaldepericias.com que compartiste tiene un menú 'Evidencias' (Listado, Nueva evidencia, Por pericia, Por tipo) y 'Cadena de custodia' (Registro de eventos, Movimientos de evidencia, Trazabilidad completa). Estas categorías reales de Trello son insumo directo para poblar el catálogo cerrado de 'Tipo de evidencia' de ese módulo, en vez de dejarlo abierto a texto libre como el nombre de archivo de hoy."
+}
