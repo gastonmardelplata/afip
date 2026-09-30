@@ -1,0 +1,20 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas y de las últimas 100 actividades de movimiento de tarjetas del tablero Trello \"Pericias 2026\" (2026-06-24 a 2026-09-30, hay historial más viejo sin traer). Cada estado indica si ya existe como lista real en el tablero o si falta crearlo.",
+  "flujo_principal": [
+    { "id": "designada", "nombre": "Designada", "lista_trello_actual": null, "en_uso": false, "nota": "No existe como lista propia. Las 22 tarjetas creadas por la automatización SCBA que todavía no aceptaron cargo quedan sueltas, repartidas según lo que el último evento sugiere, no concentradas en un estado 'Designada'." },
+    { "id": "aceptada", "nombre": "Aceptada", "lista_trello_actual": "Aceptada", "en_uso": true, "apariciones_en_tablero": 31 },
+    { "id": "compulsa-agendada", "nombre": "Compulsa agendada", "lista_trello_actual": "En Fecha para compula", "en_uso": true, "apariciones_en_tablero": 7 },
+    { "id": "en-curso", "nombre": "En curso", "lista_trello_actual": "Comenzada", "en_uso": true, "apariciones_en_tablero": 7 },
+    { "id": "redaccion", "nombre": "Redacción", "lista_trello_actual": "Redacción", "en_uso": true, "apariciones_en_tablero": 2 },
+    { "id": "presentada", "nombre": "Presentada", "lista_trello_actual": "Presentada", "en_uso": true, "apariciones_en_tablero": 16 },
+    { "id": "impugnada-aclaraciones", "nombre": "Impugnada / Aclaraciones", "lista_trello_actual": "Impugnaciones", "en_uso": true, "apariciones_en_tablero": 2 },
+    { "id": "honorarios-regulados", "nombre": "Honorarios regulados", "lista_trello_actual": null, "en_uso": false, "nota": "No existe como lista propia. El evento SCBA 'SE REGULAN' (visto en al menos 1 tarjeta automática) no mueve ninguna tarjeta a un estado propio; hoy una causa con honorarios regulados sigue viéndose igual que antes (ej. en Presentada) hasta que alguien la pasa manualmente a Cobrada." },
+    { "id": "cobrada", "nombre": "Cobrada", "lista_trello_actual": "Cobrada", "en_uso": true, "apariciones_en_tablero": 1 }
+  ],
+  "estados_laterales": [
+    { "id": "en-espera", "nombre": "En espera", "lista_trello_actual": "En Espera de Respuesta", "en_uso": true, "apariciones_en_tablero": 4, "nota": "Ninguna de las 4 tarjetas en esta lista tiene un campo que diga de qué/quién se espera respuesta — confirma que hace falta el atributo 'motivo' + 'de quién se espera' de la propuesta original." },
+    { "id": "standby", "nombre": "StandBy", "lista_trello_actual": "StandBY", "en_uso": true, "apariciones_en_tablero": 1 },
+    { "id": "desistida", "nombre": "Desistida", "lista_trello_actual": "Desistida", "en_uso": true, "apariciones_en_tablero": 5, "nota": "Solo 1 de las 5 tarjetas tiene un motivo documentado (evento SCBA 'DESVINCULACION' -> 'Perito desvinculado'). Las otras 4 no dicen por qué se desistió; en un caso el motivo quedó escrito a mano en el TÍTULO de la tarjeta ('🚨 REMOVIDO Y SANCIONADO') en vez de en un campo." },
+    { "id": "excusada", "nombre": "Excusada", "lista_trello_actual": null, "en_uso": false, "nota": "No existe como lista ni aparece ningún caso real de excusación en las 76 tarjetas. Se mantiene en el catálogo porque es parte del ciclo de vida normal de una designación pericial." }
+  ]
+}

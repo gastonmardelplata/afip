@@ -1,0 +1,28 @@
+{
+  "_fuente": "Análisis de las últimas 100 actividades de movimiento de tarjeta (updateCard con cambio de lista) del tablero \"Pericias 2026\", del 2026-06-24 al 2026-09-30 (hay historial más antiguo que Trello no entregó en esta consulta). 38 de las 76 tarjetas tuvieron al menos un movimiento de lista registrado en esta ventana.",
+  "correccion_a_la_propuesta_original": {
+    "afirmacion_original": "\"Hoy los cambios de estado de las pericias no se pueden revertir\"",
+    "lo_que_muestran_los_datos_reales": "Es TÉCNICAMENTE FALSO: encontré 16 movimientos hacia atrás reales en la ventana de 100 eventos analizada (ej. Redacción -> Comenzada en la tarjeta 014, Presentada... -> Impugnaciones -> En Fecha para compula en la 022, En Fecha para compula -> Comenzada en 4 tarjetas distintas el mismo día). Trello nunca impidió mover una tarjeta a cualquier lista en cualquier momento — eso siempre fue mecánicamente posible arrastrando la tarjeta.",
+    "cual_es_el_problema_real": "Ninguno de esos 16 retrocesos tiene un motivo registrado en ningún campo ni comentario. La única forma de verlos es consultando el historial de actividad de Trello tarjeta por tarjeta (o por API, como se hizo acá), algo que en el uso diario nadie revisa. El problema no es que 'no se pueda' retroceder, es que al retroceder no queda ningún rastro legible del por qué, y ese historial es invisible en el uso normal del tablero.",
+    "ajuste_recomendado_al_diseno": "El wizard nuevo no necesita 'habilitar' el retroceso (ya está habilitado de hecho); necesita (1) pedir un motivo obligatorio en el momento de retroceder y (2) mostrar ese historial con motivo de forma visible en la ficha de la causa, no enterrado en un log técnico."
+  },
+  "el_flujo_no_es_lineal_en_la_practica": {
+    "hallazgo": "El flujo real no respeta el orden principal propuesto (Designada → Aceptada → Compulsa agendada → En curso → Redacción → Presentada → Impugnada → Honorarios regulados → Cobrada). Se observan saltos hacia adelante y hacia atrás constantes:",
+    "ejemplos_reales": [
+      "003-ALBORNOZ pasó directo de Presentada a Cobrada, sin pasar por Impugnaciones ni por un estado de Honorarios regulados (que ni siquiera existe como lista).",
+      "010-CCIAN pasó directo de Comenzada a Presentada, sin pasar por Redacción.",
+      "029-CASTRO hizo Redacción -> En Espera de Respuesta -> En Fecha para compula -> Redacción: volvió a agendar una compulsa en medio de la redacción del dictamen.",
+      "022-SADAIC hizo Presentada -> Impugnaciones -> En Fecha para compula: una impugnación derivó en una nueva diligencia, no en volver directo a Redacción.",
+      "006-BALEA hizo Impugnaciones -> Presentada: se resolvió la impugnación sin pasar por Redacción de nuevo.",
+      "013-HUERGO retrocedió de Comenzada a Aceptada, el retroceso más profundo observado."
+    ],
+    "recomendacion": "Modelar el Estado como un grafo con transiciones permitidas amplias (casi cualquier estado puede volver a 'En curso' o saltar a 'Presentada'/'Cobrada'), no como una secuencia rígida de pasos obligatorios. Las únicas transiciones que tiene sentido bloquear son las que no aparecen nunca en 100 eventos reales y que no tienen sentido procesal (ej. de Cobrada a Designada)."
+  },
+  "ruido_detectado_no_procesal": {
+    "tarjeta": "008 - BIASUCCI MARIO WALTER c/ AUTOS DEL PLATA S.A.",
+    "detalle": "5 movimientos de lista en menos de 2 minutos el 2026-06-30 (Aceptada -> Desistida -> Aceptada -> Impugnaciones -> Desistida -> StandBY), sin relación con ningún evento de la causa. Es casi seguro una reorganización manual del tablero (probando listas), no un reflejo de hechos procesales reales. Al migrar datos históricos conviene poder distinguir 'movimiento administrativo/de prueba' de 'movimiento real de la causa', o directamente no migrar el historial de movimientos, solo el estado actual."
+  },
+  "en_espera_y_standby_como_pausas_del_flujo_principal": {
+    "hallazgo": "En Espera de Respuesta y En Fecha para compula funcionan en la práctica como pausas de 'En curso' (Comenzada): las tarjetas entran y casi siempre vuelven a Comenzada (o van directo a Redacción) al resolverse la espera o cumplirse la compulsa, nunca quedan túneladas. Confirma que son estados laterales de verdad, no una etapa más del camino principal."
+  }
+}
