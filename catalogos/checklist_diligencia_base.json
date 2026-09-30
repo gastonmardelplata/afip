@@ -1,0 +1,25 @@
+{
+  "_fuente": "De las 76 tarjetas, ninguna usa el checklist estructurado de Trello (0 checklists nativos). Solo UNA (032 - GONZALEZ SANABRIA c/ TREBER) tiene una checklist escrita a mano en la descripción, bajo el título '### Checklist sugerida', con casilleros en formato markdown '- ☐ texto'. Es el único ejemplo real de un flujo de trabajo de diligencia/dictamen que ya usás; se toma como semilla del checklist estructurado del Paso 3, en vez de inventar uno desde cero.",
+  "checklist_base_evidenciada": [
+    "Aceptación del cargo",
+    "Revisión de demanda",
+    "Revisión de contestación",
+    "Revisión de puntos de pericia",
+    "Identificación de URLs",
+    "Verificación de existencia de publicaciones",
+    "Comparación con capturas",
+    "Elaboración del dictamen",
+    "Anexos",
+    "Presentación"
+  ],
+  "nota_sobre_generalizacion": "Los ítems 5 a 7 (URLs, publicaciones, capturas) son específicos del tipo de pericia de esa causa (evidencia digital web). El checklist estructurado del Paso 3 debería tener una base fija común a toda pericia (los ítems 1, 2, 3, 4, 8, 9, 10) más una sección de ítems específicos que varíe según el Tipo de pericia elegido en el Paso 1 (ver catalogos/tipos_pericia.json) — por ejemplo, para 'código de barras bancario' los ítems específicos serían otros que para 'sitio web y dominio'.",
+  "checklist_comun_a_toda_pericia": [
+    "Aceptación del cargo",
+    "Revisión de demanda",
+    "Revisión de contestación",
+    "Revisión de puntos de pericia",
+    "Elaboración del dictamen",
+    "Anexos",
+    "Presentación"
+  ]
+}

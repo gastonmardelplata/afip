@@ -1,0 +1,56 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. Este archivo no es un catálogo de valores: documenta cómo se ven hoy los datos del Paso 3 (Pericia) en las fichas reales, para diseñar los campos con evidencia y no a ciegas.",
+  "numero_interno": {
+    "tarjetas_con_numero_en_el_titulo": 54,
+    "tarjetas_sin_numero_asignado": 22,
+    "nota_sin_numero": "Las 22 sin número son las tarjetas 🆕 creadas por la automatización SCBA; todas dicen literalmente 'asignar número interno' en el texto, confirmando que hoy ese paso es 100% manual y pendiente.",
+    "formatos_encontrados": [
+      { "estilo": "sin relleno de ceros, sin separador", "ejemplo": "30, 31, 33, 34, 35", "cantidad": 5 },
+      { "estilo": "con relleno de ceros (3 dígitos), sin separador", "ejemplo": "037, 040, 042", "cantidad": 40 },
+      { "estilo": "con relleno de ceros, guion final", "ejemplo": "053-", "cantidad": 1 },
+      { "estilo": "sin relleno de ceros, guion final", "ejemplo": "54-", "cantidad": 1 },
+      { "estilo": "con relleno de ceros, guion bajo final", "ejemplo": "055_", "cantidad": 7 }
+    ],
+    "rango_numerico": "1 a 60",
+    "duplicados": "Ninguno — pese al desorden de formato, no se reutilizó ningún número.",
+    "huecos_en_la_secuencia": [9, 48, 49, 50, 51, 52],
+    "nota_huecos": "No se puede saber desde el tablero si esos números se usaron en tarjetas archivadas/eliminadas, se reservaron y no se cargaron, o nunca se usaron. Antes de definir el primer número interno nuevo (según la propuesta, formato NNN-AAAA) conviene confirmar esto a mano para no reabrir un número ya usado en algo archivado."
+  },
+  "aceptacion_de_cargo": {
+    "con_campo_manual_explicito": {
+      "cantidad": 2,
+      "formato": "'ACEPTO: DD/MM/AAAA' como línea suelta en la descripción",
+      "tarjetas": ["014 - HORTA CARMEN HAYDEE c/ BANCO GALICIA (29/05/2026)", "015 - FERNANDEZ REINHART... (10/04/2026)"]
+    },
+    "con_fecha_solo_en_el_log_de_eventos_scba": {
+      "cantidad": 2,
+      "formato": "la fecha aparece pegada al evento 'ACEPTA CARGO' dentro del bloque de log SCBA (ej. '18/09 – PERITO - ACEPTA CARGO / SE PROVEE'), sin un campo propio",
+      "tarjetas": ["🆕 COTARELO JORGE LUIS...", "🆕 MASUZZO BERLANGA IGNACIO..."]
+    },
+    "sin_ningun_dato_de_aceptacion": "72 de 76 tarjetas",
+    "campo_vencimiento_plazo": {
+      "cantidad": 1,
+      "tarjeta": "001 - CAROSONE PABLO DANIEL c/ CISNEROS (Vencimiento: 2026-07-09)",
+      "nota": "Es el único caso donde se ve un plazo calculado; no dice a partir de qué fecha de aceptación se calculó, así que no se puede inferir la regla real (10, 15 días hábiles, etc.) solo del dato disponible."
+    }
+  },
+  "anticipo_de_gastos": {
+    "cantidad": 1,
+    "tarjeta": "🆕 VENTURINO ANA C/ FRAVEGA... ('08/09 – DEPOSITA / SE PROVEE', con nota 'verificar qué se depositó (anticipo/honorarios)')",
+    "nota": "El propio texto de la automatización reconoce que no puede distinguir si el depósito es un anticipo de gastos o el pago de honorarios regulados — son dos eventos distintos del ciclo de vida que hoy quedan mezclados bajo el mismo evento SCBA 'DEPOSITA'."
+  },
+  "montos_y_honorarios_mal_diferenciados": {
+    "tarjeta": "003 - ALBORNOZ WALTER ROLANDO c/ RUMENCO (lista Cobrada)",
+    "texto_real": "MONTO: $43.180.139 ... [más abajo, sin campo que lo diferencie] ... Monto: 35.000.000 / Perito: 1.400.000 / Cobrada 1.400.000",
+    "problema": "Hay cuatro cifras distintas en la misma ficha sin ningún campo que diga qué es cada una: el monto reclamado por el actor (43.180.139), un segundo 'Monto' sin aclarar a qué corresponde (¿base regulatoria? ¿monto de sentencia?), el honorario regulado al perito (1.400.000) y el monto efectivamente cobrado (también 1.400.000, coincide pero podría no coincidir si hay un cobro parcial).",
+    "recomendacion": "El modelo de Pericia necesita como mínimo 4 campos separados: monto_reclamado, honorarios_regulados (+ fecha de regulación), honorarios_cobrados (+ fecha de cobro), y dejar 'monto' a secas fuera del vocabulario porque es ambiguo por diseño."
+  },
+  "estados_actuales_del_tablero_vs_propuesta": {
+    "listas_reales_y_cantidad": {
+      "Aceptada": 31, "En Fecha para compula": 7, "Comenzada": 7, "En Espera de Respuesta": 4,
+      "Redacción": 2, "Presentada": 16, "Desistida": 5, "Impugnaciones": 2, "Cobrada": 1, "StandBY": 1
+    },
+    "no_existen_como_lista_hoy": ["Designada (antes de aceptar cargo)", "Honorarios regulados", "Excusada"],
+    "hallazgo_bandeja_de_designaciones": "Las 21 tarjetas 🆕 creadas por la automatización SCBA no caen en ninguna lista de 'pendiente' o 'bandeja': 16 quedaron en Aceptada, 4 en Presentada y 1 en Desistida, según lo que el texto del último evento sugería. Confirma que la 'Bandeja de designaciones' de la propuesta no reemplaza un paso manual existente — hoy directamente no hay ningún paso de bandeja, la automatización adivina el estado final."
+  }
+}

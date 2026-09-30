@@ -1,0 +1,8 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. 30 tarjetas tienen Prioridad cargada (14 Alta, 16 Media); ninguna usa Baja.",
+  "prioridades": [
+    { "id": "alta", "nombre": "Alta", "en_uso": true, "apariciones_en_tablero": 14 },
+    { "id": "media", "nombre": "Media", "en_uso": true, "apariciones_en_tablero": 16 },
+    { "id": "baja", "nombre": "Baja", "en_uso": false, "apariciones_en_tablero": 0, "nota": "No evidenciada en las 76 tarjetas, pero se agrega igual porque Alta/Media/Baja es la escala mínima esperable; hoy en la práctica real todo es Alta o Media." }
+  ]
+}
