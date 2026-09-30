@@ -1,0 +1,84 @@
+{
+  "_fuente": "Frecuencia real de campos en las 76 tarjetas del tablero \"Pericias 2026\", cruzada contra lo visible en 2 capturas de pantalla del formulario Nuevo/Editar Expediente de portaldepericias.com (2026-09-30). Solo se evaluó esa pantalla puntual — no se vieron todavía las de Pericias, Representantes legales, Evidencias ni Honorarios, así que 'no visto' no significa 'no existe en la app', significa que no se pudo confirmar con lo compartido hasta ahora.",
+  "datos_en_mayoria_de_tarjetas_mas_de_50_por_ciento": [
+    {
+      "dato": "Carátula / identificación de partes (actor c/ demandado)",
+      "porcentaje_tablero": "100% (76/76, vía el título de la tarjeta)",
+      "contemplado_en_la_app": true,
+      "nota": "Campo 'Carátula' de texto libre en el formulario."
+    },
+    {
+      "dato": "Organismo Judicial / Juzgado",
+      "porcentaje_tablero": "59% (45/76)",
+      "contemplado_en_la_app": true,
+      "nota": "Cascada Jurisdicción -> Departamento Judicial -> Organismo Judicial. Coincide con organismos.json y departamentos_judiciales.json."
+    },
+    {
+      "dato": "Número de expediente (en cualquier formato: numero_mev, numero_causa o ambos)",
+      "porcentaje_tablero": "59% (45/76)",
+      "contemplado_en_la_app": "parcial",
+      "nota": "Hay un solo campo 'Nro. Expediente'. El relevamiento del Trello encontró que en la práctica real hay HASTA TRES números distintos por causa (numero_mev pelado, numero_causa con sigla-año, numero_interno propio del estudio) y al menos una tarjeta real los tiene juntos. Un solo campo de texto no alcanza para eso sin perder alguno de los tres."
+    },
+    {
+      "dato": "Número interno del estudio (el prefijo del nombre de la tarjeta, ej. '027', '045')",
+      "porcentaje_tablero": "71% (54/76)",
+      "contemplado_en_la_app": false,
+      "nota": "No aparece ningún campo para esto en el formulario. El identificador que se ve en la URL (/procesos/36/edit) es un ID interno de base de datos, no el formato NNN-AAAA que se venía diseñando ni el número que el estudio ya usa desde hace tiempo (027, 045, etc.)."
+    }
+  ],
+  "datos_frecuentes_35_a_41_por_ciento": [
+    {
+      "dato": "Fuero",
+      "porcentaje_tablero": "41% (31/76)",
+      "contemplado_en_la_app": true,
+      "nota": "No es un campo propio — se deriva del Organismo Judicial elegido, tal como se había recomendado en fueros.json. Confirmado por el texto de ayuda bajo Materia."
+    },
+    {
+      "dato": "Tipo de pericia (WhatsApp, evidencia digital, etc.)",
+      "porcentaje_tablero": "40% (30/76)",
+      "contemplado_en_la_app": "no visto",
+      "nota": "No está en el formulario de Expediente. Como el menú lateral separa 'Expedientes' de 'Pericias' como secciones distintas, es probable que viva en 'Nueva pericia' — buena señal de que la app ya separa Expediente de Pericia (resuelve la duda que habíamos dejado abierta sobre una causa con más de una pericia), pero no se pudo confirmar sin ver esa pantalla."
+    },
+    {
+      "dato": "Prioridad",
+      "porcentaje_tablero": "40% (30/76)",
+      "contemplado_en_la_app": "no visto",
+      "nota": "No está en el formulario de Expediente. Probablemente en la Pericia, no confirmado."
+    },
+    {
+      "dato": "Materia",
+      "porcentaje_tablero": "38% (29/76)",
+      "contemplado_en_la_app": true,
+      "nota": "Campo con catálogo filtrado por organismo, más la opción '¿No está en la lista? Agregar materia' — resuelve exactamente el problema de catálogo cerrado incompleto que habíamos anticipado en materias.json."
+    },
+    {
+      "dato": "Monto (reclamado, base regulatoria, honorarios regulados, honorarios cobrados — mezclados en Trello)",
+      "porcentaje_tablero": "36% (27/76)",
+      "contemplado_en_la_app": "parcial",
+      "nota": "El formulario de Expediente solo tiene 'Monto reclamado en la demanda'. El menú lateral tiene una sección aparte 'Honorarios' (Listado, Registrar regulación), que es justo la separación entre monto reclamado y honorarios que se había recomendado en paso3_hallazgos.json — buena señal, pero no se vio esa pantalla para confirmar los campos exactos."
+    },
+    {
+      "dato": "Actor / Demandado como campos propios (no solo dentro de la carátula)",
+      "porcentaje_tablero": "29% / 26% (22 y 20 de 76)",
+      "contemplado_en_la_app": "no visto",
+      "nota": "No están en este formulario. Podrían cargarse en el detalle del expediente después de creado, o en la sección 'Representantes legales' del menú (que en realidad parece ser para abogados, no para las partes en sí)."
+    }
+  ],
+  "datos_que_la_app_pide_y_el_trello_nunca_tuvo": [
+    {
+      "dato": "Tipo de proceso (ordinario, sumarísimo, etc.)",
+      "porcentaje_tablero": "0% (0/76) — ninguna tarjeta lo menciona",
+      "nota": "Va a haber que completar este dato a mano para cualquier causa que se migre desde el Trello, no se puede inferir de lo que ya está cargado."
+    },
+    {
+      "dato": "Jurisdicción (Buenos Aires / Nacional, presumiblemente)",
+      "porcentaje_tablero": "0% explícito, aunque implícito en la tarjeta de Justicia Nacional (032-GONZALEZ SANABRIA)",
+      "nota": "Buena noticia: la app ya contempla que una causa no sea de la provincia (separado de Departamento Judicial), que es justo el caso del Juzgado Nacional en lo Civil documentado en fueros.json."
+    }
+  ],
+  "hallazgo_concreto_de_calidad_de_dato": {
+    "tarjeta": "Editar Expediente de '027 LANDIN JULIAN EMMANUEL C CASIMIRO FELIX TOYOS...' (procesos/36/edit)",
+    "problema": "El campo 'Nro. Expediente' de esa pantalla muestra '3420'. Pero en el Trello, la tarjeta real de LANDIN (027) tiene 'Número: 40827'. El '3420' coincide en cambio con el número de una causa DISTINTA: 028-GHIOLDI JUAN PABLO c/ BANCO SANTANDER (Número: MP-3420-2024). Organismo y Departamento Judicial sí coinciden con LANDIN (Tribunal de Trabajo 3, Mar del Plata), así que no parece ser la tarjeta equivocada completa, sino un número de expediente cruzado al cargar el dato.",
+    "recomendacion": "Antes de dar por buena esta ficha migrada, confirmar cuál es el número de expediente correcto de la causa LANDIN y corregirlo."
+  }
+}
