@@ -1,0 +1,193 @@
+{
+  "_fuente": "Relevamiento manual del tablero Trello \"Pericias 2026\" (76 tarjetas, board https://trello.com/b/LXVxhiUl/pericias-2026) el 2026-09-30. Cada entrada trae confirmado=true cuando el nombre completo del organismo (tipo + número + localidad) aparece literal en al menos una tarjeta; confirmado=false cuando la localidad o el número se infirieron por cruce con otra tarjeta del mismo juzgado y conviene validarlos antes de cerrarlos en el catálogo definitivo.",
+  "organismos": [
+    {
+      "id": "jcc-1-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 1,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 1 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-3-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 3,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 3 - Mar del Plata",
+      "confirmado": false,
+      "nota": "Tarjeta 022 (SADAIC c/ PALACE HOTEL SRL) solo dice \"Juzgado Civil y Comercial 3\", sin localidad explícita. Se infiere Mar del Plata por el domicilio habitual del estudio."
+    },
+    {
+      "id": "jcc-5-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 5,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 5 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-6-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 6,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 6 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-7-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 7,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 7 - Mar del Plata",
+      "confirmado": false,
+      "nota": "Tarjeta 011 (FERNÁNDEZ HERRERO c/ LOURENCO) solo dice \"Civil y Comercial N 7\", sin localidad explícita."
+    },
+    {
+      "id": "jcc-8-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 8,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 8 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-9-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 9,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 9 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-12-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 12,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 12 - Mar del Plata",
+      "confirmado": false,
+      "nota": "Tarjeta 026 (COSENTINO c/ BAGNATO) solo dice \"Civil y Comercial N 12\", sin localidad explícita."
+    },
+    {
+      "id": "jcc-15-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 15,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 15 - Mar del Plata",
+      "confirmado": false,
+      "nota": "Tarjeta 001 (CAROSONE c/ CISNEROS) solo dice \"Juzgado Civil y Comercial 15\", sin localidad explícita."
+    },
+    {
+      "id": "jcc-16-mdp",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 16,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 16 - Mar del Plata",
+      "confirmado": false,
+      "nota": "Tarjeta 053 (ABRAMOVICH c/ GOLDAR) solo dice \"Juzgado Civil y Comercial Nro 16\", sin localidad explícita."
+    },
+    {
+      "id": "jcc-2-necochea",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 2,
+      "departamento_judicial": "necochea",
+      "localidad": "Necochea",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 2 - Necochea",
+      "confirmado": true
+    },
+    {
+      "id": "jcc-1-tres-arroyos",
+      "tipo": "Juzgado Civil y Comercial",
+      "numero": 1,
+      "departamento_judicial": "bahia-blanca",
+      "localidad": "Tres Arroyos",
+      "nombre_completo": "Juzgado Civil y Comercial Nº 1 - Tres Arroyos",
+      "confirmado": true
+    },
+    {
+      "id": "jflia-2-mdp",
+      "tipo": "Juzgado de Familia",
+      "numero": 2,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Juzgado de Familia Nº 2 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "ttrab-1-mdp",
+      "tipo": "Tribunal del Trabajo",
+      "numero": 1,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Tribunal del Trabajo Nº 1 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "ttrab-3-mdp",
+      "tipo": "Tribunal del Trabajo",
+      "numero": 3,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Tribunal del Trabajo Nº 3 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "ttrab-4-mdp",
+      "tipo": "Tribunal del Trabajo",
+      "numero": 4,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Tribunal del Trabajo Nº 4 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "ttrab-5-mdp",
+      "tipo": "Tribunal del Trabajo",
+      "numero": 5,
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Tribunal del Trabajo Nº 5 - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "ttrab-necochea",
+      "tipo": "Tribunal del Trabajo",
+      "numero": null,
+      "departamento_judicial": "necochea",
+      "localidad": "Necochea",
+      "nombre_completo": "Tribunal del Trabajo - Necochea",
+      "confirmado": true,
+      "nota": "Necochea tiene un único Tribunal del Trabajo, sin numeración."
+    },
+    {
+      "id": "camara-cc-sala2-mdp",
+      "tipo": "Cámara de Apelación Civil y Comercial",
+      "numero": null,
+      "sala": "II",
+      "departamento_judicial": "mar-del-plata",
+      "localidad": "Mar del Plata",
+      "nombre_completo": "Cámara de Apelación Civil y Comercial Sala II - Mar del Plata",
+      "confirmado": true
+    },
+    {
+      "id": "jnac-civil-105-caba",
+      "tipo": "Juzgado Nacional en lo Civil",
+      "numero": 105,
+      "departamento_judicial": null,
+      "localidad": "Ciudad Autónoma de Buenos Aires",
+      "nombre_completo": "Juzgado Nacional en lo Civil Nº 105",
+      "confirmado": false,
+      "nota": "Justicia Nacional, no provincial: no pertenece a ningún departamento judicial de la SCBA y usa numeración número/año (ej. 12.342/2019), no SIGLA-correlativo-año. Dato incompleto en la tarjeta original (\"del expediente surge únicamente 'Juz. 105'\"); confirmar número y secretaría antes de dar el organismo por cerrado."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "_fuente": "Relevamiento manual del tablero Trello \"Pericias 2026\" (76 tarjetas) el 2026-09-30. Las siglas marcadas confirmado=true aparecen literalmente en el campo Número de al menos una tarjeta real, con formato SIGLA-correlativo-año. Las demás son inferidas y no deben tratarse como definitivas hasta verificarlas contra un expediente real de esa jurisdicción.",
+  "departamentos": [
+    {
+      "id": "mar-del-plata",
+      "nombre": "Mar del Plata",
+      "sigla": "MP",
+      "confirmado": true,
+      "localidades": ["Mar del Plata"],
+      "apariciones_en_tablero": 9
+    },
+    {
+      "id": "necochea",
+      "nombre": "Necochea",
+      "sigla": "NE",
+      "confirmado": true,
+      "localidades": ["Necochea"],
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "bahia-blanca",
+      "nombre": "Bahía Blanca",
+      "sigla": null,
+      "confirmado": false,
+      "localidades": ["Bahía Blanca", "Tres Arroyos"],
+      "apariciones_en_tablero": 0,
+      "nota": "Tres Arroyos depende del Departamento Judicial de Bahía Blanca (tiene juzgado propio en la ciudad, pero no es departamento judicial autónomo). En las 2 tarjetas relevadas con organismo en Tres Arroyos, el número de expediente nunca lleva sigla de departamento (aparece pelado, ej. 38512). No inventar una sigla sin confirmarla contra un expediente real de esa jurisdicción."
+    }
+  ],
+  "fuera_de_scba": {
+    "nota": "Al menos una tarjeta (GONZÁLEZ SANABRIA c/ TREBER) corresponde a Justicia Nacional (Juzgado Nacional en lo Civil, CABA), que no usa el esquema SIGLA-correlativo-año de la SCBA sino numero/año (ej. 12.342/2019). Es un fuero de justicia distinto (Nacional vs. Provincial) y no debe mezclarse con el catálogo de departamentos judiciales de la provincia de Buenos Aires."
+  }
+}
