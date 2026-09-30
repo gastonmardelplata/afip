@@ -1,0 +1,31 @@
+{
+  "_fuente": "Etiquetas de color del tablero Trello \"Pericias 2026\", significado confirmado por el usuario el 2026-09-30. A diferencia de Estado (la lista/columna) y Prioridad, esto es una bandera independiente: una causa puede estar en cualquier estado del flujo y tener o no una bandera encima (ej. Presentada + Urgente, Aceptada + En revisión).",
+  "_regla_de_diseno": "Modelar como atributo multi-select aparte del Estado, no como parte del flujo de estados ni como reemplazo de Prioridad (son cosas distintas: Prioridad es una valoración inicial de la causa, la bandera es una señal operativa del momento).",
+  "banderas": [
+    {
+      "id": "urgente",
+      "nombre": "Urgente",
+      "color_original_trello": "red",
+      "en_uso": true,
+      "apariciones_en_tablero": 7
+    },
+    {
+      "id": "en-revision",
+      "nombre": "En revisión",
+      "color_original_trello": "yellow",
+      "en_uso": true,
+      "apariciones_en_tablero": 15
+    },
+    {
+      "id": "listo",
+      "nombre": "Listo",
+      "color_original_trello": "green",
+      "en_uso": true,
+      "apariciones_en_tablero": 6
+    }
+  ],
+  "colores_sin_significado_confirmado": {
+    "nota": "El tablero define 3 colores más (orange, blue, black_light/'Gris') usados una sola vez cada uno, y purple sin usar. No se migran a este catálogo hasta confirmar si significaban algo puntual.",
+    "detalle": "Ver catalogos/campos_nativos_trello_hallazgos.json"
+  }
+}

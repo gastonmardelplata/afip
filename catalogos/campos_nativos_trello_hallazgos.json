@@ -12,9 +12,19 @@
       { "color": "black_light", "nombre": "Gris", "usos": 1 },
       { "color": "purple", "nombre": "", "usos": 0 }
     ],
-    "problema": "6 de las 7 etiquetas del tablero NO tienen nombre, solo color (y la única que tiene nombre, 'Gris', está puesta sobre el color 'black_light', que en la interfaz de Trello se ve casi negro, no gris — el nombre ni siquiera coincide con el color). No hay forma de saber qué significa cada color desde los datos del tablero.",
-    "intento_de_correlacion": "Crucé el color de cada tarjeta contra su lista (estado) y su Prioridad de texto buscando un patrón (¿rojo = alta prioridad? ¿verde = lista para presentar?). No encontré ninguna correlación limpia: hay tarjetas rojas en Aceptada, Desistida, Presentada e Impugnaciones, con prioridad Alta y Media indistintamente. Lo mismo pasa con amarillo y verde. Conclusión: es un código de colores informal y no documentado, no vale la pena tratar de adivinarlo — hay que preguntarte directamente qué significaba cada color antes de decidir si migrarlo a algo en el sistema nuevo o descartarlo.",
-    "recomendacion": "No inventar un significado. Si estos colores codificaban algo real (por ejemplo, urgencia extra o 'requiere atención'), decime qué era cada uno y lo incorporo como un catálogo; si no, se descartan sin más al migrar."
+    "significado_confirmado_por_el_usuario": {
+      "red": "Urgente",
+      "yellow": "En revisión",
+      "green": "Listo"
+    },
+    "por_que_no_correlacionaba_con_lista_ni_prioridad": "Tiene sentido que no haya aparecido ningún patrón limpio: son una bandera independiente del estado (lista) y de la Prioridad, no una redundancia de esos dos campos. 'Urgente', 'En revisión' y 'Listo' se pueden aplicar sobre cualquier estado del flujo (una causa Presentada puede estar 'en revisión' de una impugnación, una Aceptada puede ser 'urgente' por plazo corto, etc.), así que buscar correlación con la lista era la pregunta equivocada.",
+    "colores_sin_significado_confirmado": [
+      { "color": "orange", "usos": 1, "tarjeta": "004 - ALVAREZ DIEGO ALBERTO c/ INGENIEROS ELECTRONICOS ASOCIADOS S.R.L (además tiene yellow)" },
+      { "color": "blue", "usos": 1, "tarjeta": "017 - IRIARTE ADASSUS PABLO c/ COHEN VERONICA (además tiene red)" },
+      { "color": "black_light", "nombre_en_trello": "Gris", "usos": 1, "tarjeta": "022 - SADAIC c/ PALACE HOTEL SRL" },
+      { "color": "purple", "usos": 0, "nota": "definida en el tablero pero nunca usada" }
+    ],
+    "recomendacion": "Modelar Urgente/En revisión/Listo como un atributo booleano o un tag independiente del Estado en el nuevo sistema (no como parte del flujo de estados), ya que hoy conviven con cualquier lista. Los otros tres colores (naranja, azul, gris) solo se usaron una vez cada uno y siempre combinados con rojo o amarillo en la misma tarjeta — probablemente pruebas o casos puntuales sin un significado sistemático; si te acordás de algo puntual para esas 3 tarjetas lo documento, si no las dejo como dato suelto sin migrar."
   },
   "fecha_due_nativa": {
     "tarjetas_con_due": 6,
