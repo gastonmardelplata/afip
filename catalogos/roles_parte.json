@@ -1,0 +1,35 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30.",
+  "_nota": "A diferencia de Organismo/Fuero/Materia/Tipo de pericia, Partes y Representantes NO son catálogos de valores fijos (cada causa tiene sus propias personas). Lo único catalogable acá es el ROL que puede cumplir una parte dentro de una causa, y el tipo de representación de un abogado. Este archivo es el catálogo de roles; ver tipos_representante.json para el otro.",
+  "roles": [
+    {
+      "id": "actor",
+      "nombre": "Actor",
+      "en_uso": true,
+      "apariciones_en_tablero": 17
+    },
+    {
+      "id": "demandado",
+      "nombre": "Demandado",
+      "en_uso": true,
+      "apariciones_en_tablero": 20
+    },
+    {
+      "id": "citado-en-garantia",
+      "nombre": "Citado en garantía",
+      "en_uso": false,
+      "apariciones_en_tablero": 0,
+      "nota": "No aparece un campo con este rol en ninguna de las 76 tarjetas, pero el rol existe en la práctica real: al menos 6 tarjetas mencionan una aseguradora (Provincia Seguros, Triunfo Cooperativa de Seguros, Sancor, Caja de Seguros x2, Nación Seguros) que casi seguro está citada en garantía por ser la cobertura del demandado, no una demandada directa. Hoy se carga la aseguradora como un demandado más en el mismo campo de texto libre (ver hallazgo en catalogos/partes_hallazgos.json), perdiendo la distinción procesal entre demandado y citado en garantía."
+    },
+    {
+      "id": "tercero",
+      "nombre": "Tercero",
+      "en_uso": false,
+      "apariciones_en_tablero": 0,
+      "nota": "No evidenciado en las 76 tarjetas, pero se mantiene en el catálogo porque es un rol procesal estándar (tercería, tercero interesado) que puede aparecer en cualquier momento."
+    }
+  ],
+  "atributo_no_es_rol": {
+    "sucesion_herederos": "Cuando una parte falleció y la causa sigue por sus herederos, eso NO es un rol nuevo: la parte sigue siendo Actor o Demandado, con un atributo 'interviene_por_sucesion_de' que apunta al causante fallecido. Ver el caso real en partes_hallazgos.json (tarjeta 057-WILKS), donde la ficha cargó como actor al causante fallecido en vez de a sus herederos."
+  }
+}

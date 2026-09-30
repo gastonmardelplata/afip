@@ -1,0 +1,48 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. Este archivo no es un catálogo: documenta problemas reales de datos en el campo Partes/Representantes que el modelo nuevo (Paso 2 del wizard) tiene que resolver estructuralmente, no solo advertir.",
+  "hallazgos": [
+    {
+      "tipo": "representante_sin_rol_ni_parte",
+      "tarjetas": [
+        "037 - GONZALEZ NESTOR ROMAN C MARDELCONT SA Y OTRO S DESPIDO",
+        "036 - MORALES NICOLE ALEJANDRA C SERVECO MAR DEL PLATA SRL S DESPIDO",
+        "016 - FRANCO MUÑOZ YEISON C IRIARTE MATIAS y otros S DESPIDO"
+      ],
+      "detalle": "Las 3 tienen nombre de abogado (Norma Esther Mugnaga, Patricio Luis Horn, Facundo Damián Agüero) con mail y/o teléfono, pero ninguna dice a qué parte representa ni si es apoderado o patrocinante. Es el mismo problema que señalaste al principio (Mugnaga, Horn como texto libre), confirmado con las fichas reales: pasa en 3 de las 4 tarjetas que mencionan un abogado.",
+      "excepcion_positiva": "La tarjeta 058 (GONZALEZ MARIELA c/ NOIS S.R.L.) sí aclara el rol: 'Juan Pablo Vignolo, abogado de NOIS S.R.L.' (la demandada) y hasta menciona el colegio ('Colegio Carlos Tejedor'), aunque sin tomo/folio. Es la prueba de que cuando el dato se escribe con cuidado, alcanza para resolver el vínculo — el wizard solo tiene que forzar que siempre se cargue así."
+    },
+    {
+      "tipo": "aseguradora_cargada_como_demandado_en_vez_de_citada_en_garantia",
+      "tarjetas": [
+        "046 - GARCIA JUAN CARLOS C CAJA DE SEGUROS",
+        "024 - AGUILAR NICOLAS SANTIAGO y otro c/ CAJA SEGUROS"
+      ],
+      "detalle": "En 046 el campo DEMANDADO dice 'DURAN OLIVIA- CAJA DE SEGUROS S.A': dos partes distintas (la conductora y la aseguradora) metidas en un solo campo de texto separadas por un guion. En 024 es peor: la carátula dice '... C/ CAJA DE SEGUROS SA Y OTRO/A ...' pero el campo estructurado DEMANDADA solo carga a 'SWIDZINSKI TAMARA' — la aseguradora queda afuera de la ficha aunque está en el título. En ningún caso la aseguradora está marcada como citada en garantía, que es casi seguro su rol real (cobertura del demandado, no demandada directa).",
+      "impacto": "Si algún reporte o notificación se basa en el campo estructurado (no en la carátula completa), la aseguradora directamente no existe para el sistema en la tarjeta 024."
+    },
+    {
+      "tipo": "actor_fallecido_cargado_en_vez_de_sus_herederos",
+      "tarjetas": [
+        "057_WILKS ERNESTO FEDERICO Y HOYOS ALEJANDRO ALBERTO Y CORADAZZI AGUEDA MARÍA LUJAN (HEREDEROS DE HOYOS ALBERTO ARMANDO) C FIN S.A. Y ENKO YO GRUPO ENKO SRL"
+      ],
+      "detalle": "La carátula (título de la tarjeta) ya identifica correctamente a los herederos como partes: 'HOYOS ALEJANDRO ALBERTO Y CORADAZZI AGUEDA MARÍA LUJAN (HEREDEROS DE HOYOS ALBERTO ARMANDO)'. Pero el campo estructurado ACTORES de la descripción dice 'WILKS Ernesto Federico y HOYOS, Alberto Armando' — carga al causante fallecido (Alberto Armando Hoyos) como si fuera él quien litiga, en vez de a sus herederos reales.",
+      "recomendacion": "El modelo de Parte necesita un atributo 'interviene_por_sucesión_de' (no un rol nuevo): la parte es 'Alejandro Alberto Hoyos, hereda de Alberto Armando Hoyos', manteniendo el rol Actor."
+    },
+    {
+      "tipo": "multiples_partes_en_un_solo_campo_de_texto",
+      "tarjetas": [
+        "037 - GONZALEZ NESTOR ROMAN C MARDELCONT SA Y OTRO S DESPIDO (DEMANDADOS: MARDELCONT SA Y TRANSPORTES RABBIONE SA)",
+        "057_WILKS... (ACTORES: WILKS Ernesto Federico y HOYOS, Alberto Armando)",
+        "046 - GARCIA JUAN CARLOS C CAJA DE SEGUROS (DEMANDADO: DURAN OLIVIA- CAJA DE SEGUROS S.A)"
+      ],
+      "detalle": "20 de las 76 carátulas tienen 'y otro/a/os', pero los campos ACTOR/DEMANDADO casi siempre son un único string de texto libre con las partes separadas por 'y' o un guion, no una lista. Esto hace imposible saber cuántas partes reales hay sin leer el texto a mano.",
+      "recomendacion": "Partes debe ser una tabla (n filas por causa), no un campo de texto. Es exactamente lo que ya proponías en el Paso 2 original; este relevamiento solo confirma con casos reales que hace falta."
+    }
+  ],
+  "dato_nunca_presente_en_las_76_tarjetas": [
+    "CUIT de cualquier parte (persona física o jurídica)",
+    "Tipo de persona (física/jurídica) explícito",
+    "Colegio de abogados con tomo y folio completos (solo 1 caso trae el nombre del colegio, sin tomo/folio)",
+    "Domicilio electrónico (el único domicilio que aparece, en la tarjeta 036, es un domicilio físico, no el domicilio electrónico de la MEV)"
+  ]
+}

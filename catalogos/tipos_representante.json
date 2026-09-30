@@ -1,0 +1,25 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. Solo 4 de las 76 tarjetas mencionan un abogado por nombre; ninguna dice explícitamente si es apoderado o patrocinante.",
+  "tipos": [
+    {
+      "id": "apoderado",
+      "nombre": "Apoderado",
+      "en_uso": false,
+      "apariciones_en_tablero": 0,
+      "nota": "Ningún caso real distingue esto hoy; se agrega al catálogo porque es la alternativa procesal estándar al patrocinio."
+    },
+    {
+      "id": "patrocinante",
+      "nombre": "Patrocinante",
+      "en_uso": false,
+      "apariciones_en_tablero": 0
+    },
+    {
+      "id": "consultor-tecnico-de-parte",
+      "nombre": "Consultor técnico / perito de parte",
+      "en_uso": true,
+      "apariciones_en_tablero": 1,
+      "nota": "Hallazgo no previsto en la propuesta original: la tarjeta 058 (GONZALEZ MARIELA c/ NOIS S.R.L.) menciona a la Ing. Marina S. Cabreros, quien hizo un informe pericial de preservación de evidencia digital para la demandada. No es una representación legal (no litiga ni firma escritos), es un experto técnico de la contraparte. Para vos como perito esto es un rol relevante de registrar aparte de los abogados: vas a necesitar cotejar o refutar el trabajo de estos consultores en tus propias diligencias."
+    }
+  ]
+}
