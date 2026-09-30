@@ -1,0 +1,90 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. 30 tarjetas tienen campo Tipo cargado (31 líneas, porque la tarjeta 025 tiene el bloque completo Fuero/Tipo/Prioridad duplicado con valores distintos — ver anomalias_detectadas). 46 tarjetas no tienen Tipo cargado.",
+  "_regla_de_diseno": "Tipo de pericia debe ser MULTI-SELECT, no una lista de opción única. El texto libre actual ya mezcla varios medios en un mismo valor ('WhatsApp y Correos', 'WhatsApp y Redes', 'WhatsApp e Instagram', 'YouTube y publicidad digital'), lo que confirma que una pericia típica cubre más de un medio a la vez. Este catálogo define las etiquetas atómicas; cada tarjeta real se resuelve como una o más etiquetas (ver mapeo_valores_originales).",
+  "tipos": [
+    {
+      "id": "whatsapp",
+      "nombre": "WhatsApp",
+      "apariciones_en_tablero": 11,
+      "nota": "El tipo más usado por lejos. Incluye 'WhatsApp', 'Mensajes de WhatsApp' y como componente de los combos WhatsApp+Correos/Redes/Instagram."
+    },
+    {
+      "id": "redes-sociales",
+      "nombre": "Redes sociales",
+      "apariciones_en_tablero": 2,
+      "nota": "Instagram nombrado explícitamente en un caso; siempre aparece combinado con WhatsApp en los datos reales, nunca solo."
+    },
+    {
+      "id": "correos-electronicos",
+      "nombre": "Correos electrónicos",
+      "apariciones_en_tablero": 4
+    },
+    {
+      "id": "codigo-barras-bancario",
+      "nombre": "Código de barras bancario",
+      "apariciones_en_tablero": 2
+    },
+    {
+      "id": "home-banking-ciberfraude",
+      "nombre": "Home banking / ciberfraude",
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "sitio-web-dominio",
+      "nombre": "Sitio web y dominio",
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "sistema-corporativo",
+      "nombre": "Sistema corporativo / interno",
+      "apariciones_en_tablero": 2,
+      "nota": "Cubre tanto el sistema de gestión de siniestros de una aseguradora (024) como los sistemas internos de un empleador (013). Si con el tiempo se acumulan más casos conviene separar 'sistema de aseguradora' de 'sistema de empleador'."
+    },
+    {
+      "id": "publicidad-digital-youtube",
+      "nombre": "Publicidad digital / YouTube",
+      "apariciones_en_tablero": 2
+    },
+    {
+      "id": "cctv",
+      "nombre": "CCTV / videovigilancia",
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "evidencia-digital-generica",
+      "nombre": "Evidencia digital (sin precisar)",
+      "apariciones_en_tablero": 6,
+      "nota": "Fallback usado cuando la tarjeta no precisó el medio concreto (WhatsApp, correo, sitio web, etc.). No es un tipo real de pericia sino la ausencia de detalle: al migrar, revisar tarjeta por tarjeta si se puede reclasificar en un tipo específico antes de aceptar este valor como definitivo."
+    }
+  ],
+  "mapeo_valores_originales": [
+    {"valor_original": "WhatsApp", "tags": ["whatsapp"], "apariciones": 8},
+    {"valor_original": "Evidencia digital", "tags": ["evidencia-digital-generica"], "apariciones": 5},
+    {"valor_original": "Código de barras bancario", "tags": ["codigo-barras-bancario"], "apariciones": 2},
+    {"valor_original": "WhatsApp y Correos", "tags": ["whatsapp", "correos-electronicos"], "apariciones": 2},
+    {"valor_original": "YouTube y publicidad digital", "tags": ["publicidad-digital-youtube"], "apariciones": 2},
+    {"valor_original": "Mensajes de WhatsApp", "tags": ["whatsapp"], "apariciones": 1},
+    {"valor_original": "Evidencia digital – Whatsapp", "tags": ["whatsapp", "evidencia-digital-generica"], "apariciones": 1},
+    {"valor_original": "WhatsApp y Redes", "tags": ["whatsapp", "redes-sociales"], "apariciones": 1},
+    {"valor_original": "Sitio web y dominio", "tags": ["sitio-web-dominio"], "apariciones": 1},
+    {"valor_original": "Sistema corporativo seguros", "tags": ["sistema-corporativo"], "apariciones": 1},
+    {"valor_original": "Home Banking y ciberfraude", "tags": ["home-banking-ciberfraude"], "apariciones": 1},
+    {"valor_original": "Correos electrónicos y sistemas", "tags": ["correos-electronicos", "sistema-corporativo"], "apariciones": 1},
+    {"valor_original": "WhatsApp e Instagram", "tags": ["whatsapp", "redes-sociales"], "apariciones": 1},
+    {"valor_original": "Publicidad digital", "tags": ["publicidad-digital-youtube"], "apariciones": 1},
+    {"valor_original": "Evidencia digital web / Autenticidad de documentos electrónicos", "tags": ["evidencia-digital-generica", "sitio-web-dominio"], "apariciones": 1},
+    {"valor_original": "CCTV", "tags": ["cctv"], "apariciones": 1},
+    {"valor_original": "Correo electrónico", "tags": ["correos-electronicos"], "apariciones": 1}
+  ],
+  "anomalias_detectadas": [
+    {
+      "tarjeta": "025 - GAUNA VICTORIA DANIELA y otro c/ DEVELOPER",
+      "problema": "La descripción tiene el bloque 'Fuero/Tipo/Prioridad' pegado dos veces con valores distintos: primero 'Tipo: Publicidad digital, Prioridad: Media' y después 'Tipo: YouTube y publicidad digital, Prioridad: Alta'. Es evidencia de que hoy se edita pegando un bloque nuevo encima del anterior en vez de reemplazar el campo, y el dato viejo queda como basura en el texto.",
+      "recomendacion": "Con campos estructurados (no texto libre) esto no puede pasar: editar un campo lo reemplaza, no lo duplica."
+    }
+  ],
+  "tarjetas_sin_tipo_cargado": {
+    "cantidad": 46,
+    "nota": "Más de la mitad del tablero no tiene Tipo de pericia cargado. No se fuerza clasificación por carátula porque el tipo de pericia (WhatsApp, sitio web, etc.) no se puede inferir de la carátula de la causa como sí se puede aproximar la materia."
+  }
+}
