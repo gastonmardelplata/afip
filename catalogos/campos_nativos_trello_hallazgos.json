@@ -1,0 +1,38 @@
+{
+  "_fuente": "Segunda pasada sobre las 76 tarjetas del tablero \"Pericias 2026\" (2026-09-30), pedida para revisar todo de nuevo. La primera pasada solo había mirado el campo de texto 'desc' de cada tarjeta; esta segunda pasada compara ambos snapshots (no hubo tarjetas nuevas, eliminadas ni modificadas entre una y otra) y además revisa los campos NATIVOS de Trello que no son texto libre: etiquetas de color, fecha de vencimiento (due) y miembros asignados. Ninguno de estos tres campos nativos estaba documentado en los catálogos anteriores.",
+  "confirmacion_sin_cambios": "Comparé el snapshot de esta pasada contra el de la sesión anterior tarjeta por tarjeta (id, nombre, descripción, lista): 0 tarjetas nuevas, 0 eliminadas, 0 modificadas. Todos los catálogos ya generados (organismos, fueros, materias, tipos de pericia, partes, prioridad, checklist, hallazgos del Paso 3) siguen reflejando el estado actual del tablero.",
+  "etiquetas_de_color": {
+    "tarjetas_con_alguna_etiqueta": 23,
+    "definidas_en_el_tablero": [
+      { "color": "yellow", "nombre": "", "usos": 15 },
+      { "color": "red", "nombre": "", "usos": 7 },
+      { "color": "green", "nombre": "", "usos": 6 },
+      { "color": "orange", "nombre": "", "usos": 1 },
+      { "color": "blue", "nombre": "", "usos": 1 },
+      { "color": "black_light", "nombre": "Gris", "usos": 1 },
+      { "color": "purple", "nombre": "", "usos": 0 }
+    ],
+    "problema": "6 de las 7 etiquetas del tablero NO tienen nombre, solo color (y la única que tiene nombre, 'Gris', está puesta sobre el color 'black_light', que en la interfaz de Trello se ve casi negro, no gris — el nombre ni siquiera coincide con el color). No hay forma de saber qué significa cada color desde los datos del tablero.",
+    "intento_de_correlacion": "Crucé el color de cada tarjeta contra su lista (estado) y su Prioridad de texto buscando un patrón (¿rojo = alta prioridad? ¿verde = lista para presentar?). No encontré ninguna correlación limpia: hay tarjetas rojas en Aceptada, Desistida, Presentada e Impugnaciones, con prioridad Alta y Media indistintamente. Lo mismo pasa con amarillo y verde. Conclusión: es un código de colores informal y no documentado, no vale la pena tratar de adivinarlo — hay que preguntarte directamente qué significaba cada color antes de decidir si migrarlo a algo en el sistema nuevo o descartarlo.",
+    "recomendacion": "No inventar un significado. Si estos colores codificaban algo real (por ejemplo, urgencia extra o 'requiere atención'), decime qué era cada uno y lo incorporo como un catálogo; si no, se descartan sin más al migrar."
+  },
+  "fecha_due_nativa": {
+    "tarjetas_con_due": 6,
+    "detalle": [
+      { "tarjeta": "31 - SARENA MARCOVICH ALEJANDRA CAROLINA c/ RAYA ARIEL GUSTAVO", "due": "2026-10-09T17:00:00.000Z" },
+      { "tarjeta": "34 - GUDIÑO NATASHA LUCIANA c/ ROLDAN HECTOR LUIS", "due": "2026-09-11T17:00:00.000Z" },
+      { "tarjeta": "058_GONZALEZ MARIELA c/ NOIS S.R.L.", "due": "2026-10-06T14:30:00.000Z", "nota": "coincide con la fecha de compulsa fijada que está en el texto de la descripción (06/10/2026 11:30hs — la hora no coincide exactamente, revisar cuál es la correcta)." },
+      { "tarjeta": "029 - CASTRO GUILLERMO ARIEL c/ SURGEON CAR SRL", "due": "2026-09-25T17:00:00.000Z" },
+      { "tarjeta": "017 - IRIARTE ADASSUS PABLO c/ COHEN VERONICA", "due": "2026-09-30T13:00:00.000Z" },
+      { "tarjeta": "002 - AGUAVOTTA AYALA WALTER c/ CAR GROUP SA", "due": "2026-09-22T17:00:00.000Z" }
+    ],
+    "nota": "Es un dato más rico que el que había reportado antes (dije que solo 1 tarjeta tenía vencimiento, contando solo el campo de texto). Sumando el campo nativo son 7 tarjetas en total con algún dato de plazo, sin superposición entre el grupo de texto y el nativo. Sigue siendo una minoría (7 de 76) y sigue sin poder verse la regla de cálculo del plazo."
+  },
+  "miembros_asignados": {
+    "tarjetas_con_miembro": 1,
+    "detalle": "042 - Marino Joaquina Elena c/ OPM ARGENTINA, asignada al usuario 'gastonmardelplata' (el dueño del tablero). No parece un dato relevante para el modelo — es autoasignación, no una asignación real a distintos colaboradores."
+  },
+  "comentarios_y_checklists_nativos": {
+    "nota": "Confirmado en esta segunda pasada: 0 de 76 tarjetas tienen comentarios de Trello y 0 tienen checklist nativo de Trello. Todo el historial y los pendientes de diligencia están en el texto de la descripción, como ya se había documentado en checklist_diligencia_base.json."
+  }
+}

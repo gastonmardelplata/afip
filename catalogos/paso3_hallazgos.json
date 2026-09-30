@@ -28,10 +28,14 @@
       "tarjetas": ["🆕 COTARELO JORGE LUIS...", "🆕 MASUZZO BERLANGA IGNACIO..."]
     },
     "sin_ningun_dato_de_aceptacion": "72 de 76 tarjetas",
-    "campo_vencimiento_plazo": {
+    "campo_vencimiento_plazo_en_texto": {
       "cantidad": 1,
       "tarjeta": "001 - CAROSONE PABLO DANIEL c/ CISNEROS (Vencimiento: 2026-07-09)",
-      "nota": "Es el único caso donde se ve un plazo calculado; no dice a partir de qué fecha de aceptación se calculó, así que no se puede inferir la regla real (10, 15 días hábiles, etc.) solo del dato disponible."
+      "nota": "Es el único caso con un plazo escrito como texto; no dice a partir de qué fecha de aceptación se calculó, así que no se puede inferir la regla real (10, 15 días hábiles, etc.) solo del dato disponible."
+    },
+    "fecha_due_nativa_de_trello": {
+      "cantidad": 6,
+      "nota": "Al revisar de nuevo el tablero completo (2026-09-30, segunda pasada) encontré que 6 tarjetas SÍ usan el campo de fecha 'due' nativo de Trello (separado de cualquier campo de texto): 31-SARENA MARCOVICH (2026-10-09), 34-GUDIÑO (2026-09-11), 058-GONZALEZ MARIELA (2026-10-06 14:30, coincide con la fecha de compulsa fijada), 029-CASTRO (2026-09-25), 017-IRIARTE ADASSUS (2026-09-30 13:00), 002-AGUAVOTTA (2026-09-22). Se me había pasado en el primer relevamiento porque solo miré el campo de texto 'desc', no los campos estructurados nativos de la tarjeta (due, labels, members). Con esto el total de tarjetas con algún dato de plazo/vencimiento sube de 1 a 7 (1 en texto + 6 en due nativo, sin superposición entre ambos grupos). Sigue sin poder deducirse una regla de cálculo (no hay ninguna tarjeta con fecha de aceptación Y due nativo a la vez que permita ver el criterio)."
     }
   },
   "anticipo_de_gastos": {
