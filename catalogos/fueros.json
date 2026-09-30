@@ -1,27 +1,57 @@
 {
-  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30.",
-  "_regla_de_diseno": "El Fuero NO debe ser un campo de texto libre ni una selección independiente del usuario: se deriva del tipo de Organismo elegido en el catálogo de organismos (Juzgado Civil y Comercial / Cámara Civil y Comercial -> Civil y Comercial; Tribunal del Trabajo -> Laboral; Juzgado de Familia -> Familia). Cruzando las 76 tarjetas contra su propio organismo encontramos casos reales donde el campo de texto libre 'Fuero' quedó mal cargado (ver hallazgos_de_inconsistencia en materias.json), lo que confirma que escribirlo a mano es la causa del error, no una excepción rara.",
+  "_fuente": "Fuero: enumeración oficial de la organización judicial de la provincia de Buenos Aires (Ley Orgánica del Poder Judicial 5827 y sus modificatorias, entre ellas la Ley 13634 que crea el fuero de Responsabilidad Penal Juvenil). A diferencia de Materia y Tipo de pericia, este catálogo no se hace crecer con lo que aparezca en el Trello: es una lista cerrada y completa desde el día uno, porque la provincia solo tiene estos 7 fueros. Lo que sí se releva del tablero \"Pericias 2026\" (76 tarjetas, 2026-09-30) es cuáles de esos 7 usás en tu práctica real (en_uso) y cuáles todavía no tuviste (en_uso=false, pero igual están en el catálogo para el día que aparezcan).",
+  "_regla_de_diseno": "El Fuero NO debe ser un campo de texto libre ni una selección independiente del usuario: se deriva del tipo de Organismo elegido en el catálogo de organismos (Juzgado Civil y Comercial / Cámara Civil y Comercial -> Civil y Comercial; Tribunal del Trabajo -> Laboral; Juzgado de Familia -> Familia; Juzgado de Garantías / Tribunal en lo Criminal / Juzgado de Ejecución Penal -> Penal; Juzgado de Responsabilidad Penal Juvenil -> Responsabilidad Penal Juvenil; Juzgado Contencioso Administrativo -> Contencioso Administrativo; Juzgado de Paz Letrado -> Justicia de Paz). Cruzando las 76 tarjetas contra su propio organismo encontramos casos reales donde el campo de texto libre 'Fuero' quedó mal cargado (ver hallazgos_de_inconsistencia en materias.json), lo que confirma que escribirlo a mano es la causa del error, no una excepción rara.",
   "fueros": [
     {
       "id": "civil-y-comercial",
       "nombre": "Civil y Comercial",
-      "confirmado": true,
+      "en_uso": true,
       "organismos_que_lo_determinan": ["Juzgado Civil y Comercial", "Cámara de Apelación Civil y Comercial"],
       "apariciones_en_tablero": 13
     },
     {
       "id": "laboral",
       "nombre": "Laboral",
-      "confirmado": true,
+      "en_uso": true,
       "organismos_que_lo_determinan": ["Tribunal del Trabajo"],
       "apariciones_en_tablero": 13
     },
     {
       "id": "familia",
       "nombre": "Familia",
-      "confirmado": true,
+      "en_uso": true,
       "organismos_que_lo_determinan": ["Juzgado de Familia"],
       "apariciones_en_tablero": 1
+    },
+    {
+      "id": "penal",
+      "nombre": "Penal",
+      "en_uso": false,
+      "organismos_que_lo_determinan": ["Juzgado de Garantías", "Tribunal en lo Criminal", "Juzgado Correccional", "Juzgado de Ejecución Penal", "Tribunal de Casación Penal"],
+      "apariciones_en_tablero": 0
+    },
+    {
+      "id": "responsabilidad-penal-juvenil",
+      "nombre": "Responsabilidad Penal Juvenil",
+      "en_uso": false,
+      "organismos_que_lo_determinan": ["Juzgado de Garantías del Joven", "Juzgado de Responsabilidad Penal Juvenil", "Juzgado de Ejecución Penal Juvenil"],
+      "apariciones_en_tablero": 0,
+      "nota": "Es un fuero propio creado por Ley 13.634, separado del Penal de adultos, no una sub-rama de este."
+    },
+    {
+      "id": "contencioso-administrativo",
+      "nombre": "Contencioso Administrativo",
+      "en_uso": false,
+      "organismos_que_lo_determinan": ["Juzgado en lo Contencioso Administrativo", "Cámara de Apelación en lo Contencioso Administrativo"],
+      "apariciones_en_tablero": 0
+    },
+    {
+      "id": "justicia-de-paz",
+      "nombre": "Justicia de Paz",
+      "en_uso": false,
+      "organismos_que_lo_determinan": ["Juzgado de Paz Letrado"],
+      "apariciones_en_tablero": 0,
+      "nota": "Existe en municipios que no tienen asiento de los demás fueros; competencia limitada por monto/materia."
     }
   ],
   "valores_mal_cargados_a_reclasificar": [
@@ -38,7 +68,7 @@
       "apariciones": 1
     }
   ],
-  "fueros_no_evidenciados": {
-    "nota": "Penal, Contencioso Administrativo y otros fueros no aparecen en ninguna de las 76 tarjetas. No se agregan al catálogo todavía para no inventar datos sin uso real; agregar cuando aparezca el primer caso."
+  "fuera_del_alcance": {
+    "nota": "La Justicia Nacional/Federal (ej. la tarjeta del Juzgado Nacional en lo Civil Nº 105, CABA) no es un fuero de la provincia de Buenos Aires: es otro poder judicial completo, con su propia organización por fueros (Civil, Comercial, Laboral, Penal, Contencioso Administrativo Federal, etc.). No mezclar ese catálogo con este."
   }
 }
