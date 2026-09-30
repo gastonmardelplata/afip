@@ -1,0 +1,132 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30. confirmado=true cuando la materia se cruzó contra el organismo/juzgado real de la tarjeta (o contra el campo Fuero explícito de una tarjeta que además tenía Juzgado); confirmado=false cuando la única evidencia es la carátula del título de la tarjeta, sin campo Materia ni Fuero cargado.",
+  "materias": [
+    {
+      "id": "danos-y-perjuicios",
+      "nombre": "Daños y Perjuicios",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 13,
+      "variantes_texto_libre_vistas": [
+        "Daños y Perjuicios",
+        "DAÑOS Y PERJUICIOS",
+        "Daños y perj. incump. contractual",
+        "DAÑOS Y PERJ. INCUMP. CONTRACTUAL",
+        "Daños y perj. autom. lesiones",
+        "DAÑOS Y PERJ. AUTOM. C/LESIONES (EXC. ESTADO)"
+      ],
+      "nota": "Conviene un campo 'detalle' de texto libre debajo de esta materia (ej. 'incumplimiento contractual', 'accidente de tránsito con lesiones') en vez de crear una materia cerrada por cada variante: son la misma acción con distinto hecho generador."
+    },
+    {
+      "id": "cumplimiento-de-contratos",
+      "nombre": "Cumplimiento de contratos civiles/comerciales",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "desalojo",
+      "nombre": "Desalojo",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 1,
+      "nota": "Tarjeta 001 (CAROSONE c/ CISNEROS): Fuero explícito Civil y Comercial; la materia surge de la carátula (\"S DESALOJO\"), no de un campo Materia separado."
+    },
+    {
+      "id": "posesion-veinteanal",
+      "nombre": "Posesión veinteañal (usucapión)",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "incidente-redargucion-falsedad",
+      "nombre": "Incidente de redargución de falsedad",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "reclamo-actos-particulares",
+      "nombre": "Reclamo contra actos de particulares",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 2
+    },
+    {
+      "id": "cobro-sumario-sumas-dinero",
+      "nombre": "Cobro sumario de sumas de dinero",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": true,
+      "apariciones_en_tablero": 2,
+      "nota": "Incluye la tarjeta 007 (BANCO PROVINCIA c/ FRIAS), reclasificada desde el 'Fuero: Bancaria' mal cargado, y la 040 (SADAIC c/ SALIMAR)."
+    },
+    {
+      "id": "cobro-ordinario-sumas-dinero",
+      "nombre": "Cobro ordinario de sumas de dinero",
+      "fuero_id": "civil-y-comercial",
+      "confirmado": false,
+      "apariciones_en_tablero": 1,
+      "nota": "Tarjeta 047 (BALZOLA GALVANI c/ LA MERCANTIL ANDINA): sin campo Fuero ni Materia, se toma de la carátula (\"S COBRO ORDINARIO DE SUMAS DE DINERO\"). Es un proceso distinto del sumario (007/040), no fusionar."
+    },
+    {
+      "id": "liquidacion-regimen-patrimonial",
+      "nombre": "Liquidación de régimen patrimonial del matrimonio",
+      "fuero_id": "familia",
+      "confirmado": true,
+      "apariciones_en_tablero": 1
+    },
+    {
+      "id": "despido",
+      "nombre": "Despido",
+      "fuero_id": "laboral",
+      "confirmado": true,
+      "apariciones_en_tablero": 11,
+      "variantes_texto_libre_vistas": ["Despido", "DESPIDO", "Despido.", "DESPIDO.-"]
+    },
+    {
+      "id": "despido-diferencias-salariales",
+      "nombre": "Despido, indemnizaciones y diferencias salariales",
+      "fuero_id": "laboral",
+      "confirmado": true,
+      "apariciones_en_tablero": 1,
+      "nota": "Tratar como Despido + detalle 'diferencias salariales', no como materia aparte, salvo que quieras reportarla por separado en estadísticas."
+    },
+    {
+      "id": "despido-accidente",
+      "nombre": "Despido con accidente de trabajo",
+      "fuero_id": "laboral",
+      "confirmado": true,
+      "apariciones_en_tablero": 1,
+      "nota": "Tarjeta 005 (AVILA c/ CARNERO): el campo Materia decía literalmente 'INDEMNIZACION POR DESPIDO. ACCIDENTE:' con dos-puntos final, como si el texto se hubiera cortado. Son dos hechos distintos (despido + accidente) cargados en un solo campo; en el wizard esto debería ser Despido como materia + un punto de pericia o dato adicional para el accidente, no una materia combinada."
+    },
+    {
+      "id": "cobro-de-salarios",
+      "nombre": "Cobro de salarios",
+      "fuero_id": "laboral",
+      "confirmado": false,
+      "apariciones_en_tablero": 1,
+      "nota": "Tarjeta 060 (BAEZ ROSA PABLA): sin campo Fuero ni Materia, se toma de la carátula (\"SCOBRO DE SALARIOS\")."
+    },
+    {
+      "id": "pretension-indemnizatoria",
+      "nombre": "Pretensión indemnizatoria",
+      "fuero_id": "laboral",
+      "confirmado": false,
+      "apariciones_en_tablero": 1,
+      "nota": "Tarjeta 33 (COVELLI c/ PROVINCIA SEGUROS): sin campo Fuero ni Materia, se toma de la carátula. Verificar si corresponde a Laboral o a Civil y Comercial (hay una aseguradora citada, podría ser un daño laboral con cobertura)."
+    }
+  ],
+  "hallazgos_de_inconsistencia": [
+    {
+      "tarjeta": "012 - FINAMOR Cecilia y RODRIGUEZ Tamara",
+      "problema": "El campo dice 'Fuero: Familia', pero el campo Juzgado de la misma tarjeta dice 'Tribunal de Trabajo Nro. 4' y la carátula es '... s/ Indemnización por Despido'. Es una causa Laboral (Despido) mal cargada como Familia.",
+      "severidad": "alta",
+      "recomendacion": "Corregir el fuero de esta causa en el Trello ahora (impacta cualquier filtro o reporte por fuero) y usarla como caso de prueba de que el Fuero debe derivarse del organismo, no tipearse."
+    }
+  ],
+  "tarjetas_sin_fuero_ni_materia_cargados": {
+    "cantidad": 23,
+    "nota": "No se fuerza ninguna clasificación para estas tarjetas (BENABEN, COVELLI, GUDIÑO, PONCE, SADAIC c/SALIMAR, 041, 042, 043, 044, 045, 047, 054, 055, varias 🆕 de la SCBA, etc.). Son exactamente las fichas incompletas que el wizard nuevo debe permitir guardar con el indicador de 'ficha incompleta' en vez de quedar vacías como hoy."
+  }
+}

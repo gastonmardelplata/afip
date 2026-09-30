@@ -1,0 +1,44 @@
+{
+  "_fuente": "Relevamiento manual de las 76 tarjetas del tablero Trello \"Pericias 2026\" el 2026-09-30.",
+  "_regla_de_diseno": "El Fuero NO debe ser un campo de texto libre ni una selección independiente del usuario: se deriva del tipo de Organismo elegido en el catálogo de organismos (Juzgado Civil y Comercial / Cámara Civil y Comercial -> Civil y Comercial; Tribunal del Trabajo -> Laboral; Juzgado de Familia -> Familia). Cruzando las 76 tarjetas contra su propio organismo encontramos casos reales donde el campo de texto libre 'Fuero' quedó mal cargado (ver hallazgos_de_inconsistencia en materias.json), lo que confirma que escribirlo a mano es la causa del error, no una excepción rara.",
+  "fueros": [
+    {
+      "id": "civil-y-comercial",
+      "nombre": "Civil y Comercial",
+      "confirmado": true,
+      "organismos_que_lo_determinan": ["Juzgado Civil y Comercial", "Cámara de Apelación Civil y Comercial"],
+      "apariciones_en_tablero": 13
+    },
+    {
+      "id": "laboral",
+      "nombre": "Laboral",
+      "confirmado": true,
+      "organismos_que_lo_determinan": ["Tribunal del Trabajo"],
+      "apariciones_en_tablero": 13
+    },
+    {
+      "id": "familia",
+      "nombre": "Familia",
+      "confirmado": true,
+      "organismos_que_lo_determinan": ["Juzgado de Familia"],
+      "apariciones_en_tablero": 1
+    }
+  ],
+  "valores_mal_cargados_a_reclasificar": [
+    {
+      "valor_original": "Daños y Perjuicios",
+      "problema": "Es una materia, no un fuero.",
+      "reclasificar_como": "materia \"Daños y Perjuicios\" dentro del fuero Civil y Comercial",
+      "apariciones": 4
+    },
+    {
+      "valor_original": "Bancaria",
+      "problema": "No existe fuero bancario en la SCBA; el juzgado real de esa tarjeta (007 - BANCO PROVINCIA c/ FRIAS) es Juzgado Civil y Comercial Nro. 5.",
+      "reclasificar_como": "materia \"Cobro sumario de sumas de dinero\" dentro del fuero Civil y Comercial",
+      "apariciones": 1
+    }
+  ],
+  "fueros_no_evidenciados": {
+    "nota": "Penal, Contencioso Administrativo y otros fueros no aparecen en ninguna de las 76 tarjetas. No se agregan al catálogo todavía para no inventar datos sin uso real; agregar cuando aparezca el primer caso."
+  }
+}
